@@ -37,42 +37,61 @@ const Chatbot = () => {
     
         Sanjay's Portfolio Data:
         ${JSON.stringify(portfolioData, null, 2)}
+        
+        Current conversation:
+        ${messages.map(m => `${m.sender === 'user' ? 'User' : 'Assistant'}: ${m.text}`).join('\n')}
         `;
 
-    const payload = {
-      contents: [
-        { parts: [{ text: `Here is a new question: "${userMessage}"` }] },
-      ],
-      systemInstruction: { parts: [{ text: systemPrompt }] },
-    };
-
-    const apiKey = ""; // Canvas will provide the key
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
     try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!response.ok)
+      const response = await fetch(
+        "https://api-inference.huggingface.co/models/satvikag/chatbot",
+        {
+          method: "POST",
+          headers: { 
+            "Authorization": "Bearer hf_wVbRlZQYqgYbLfQdQJpUYxXvXyZ",
+            "Content-Type": "application/json" 
+          },
+          body: JSON.stringify({
+            inputs: [
+              {
+                "role": "system",
+                "content": systemPrompt
+              },
+              {
+                "role": "user",
+                "content": userMessage
+              }
+            ],
+            parameters: {
+              max_new_tokens: 500,
+              temperature: 0.7,
+              return_full_text: false
+            }
+          })
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("API Error:", errorData);
         throw new Error(`API call failed with status: ${response.status}`);
+      }
 
       const result = await response.json();
-      const botResponseText =
-        result.candidates?.[0]?.content?.parts?.[0]?.text ||
-        "Sorry, I couldn't process that. Please try again.";
+      const botResponseText = result[0]?.generated_text?.trim() || 
+        "I'm sorry, I couldn't generate a response. Please try again.";
+      
       setMessages((prev) => [
         ...prev,
         { sender: "bot", text: botResponseText },
       ]);
     } catch (error) {
-      console.error("Error calling Gemini API:", error);
+      console.error("Error calling AI model:", error);
       setMessages((prev) => [
         ...prev,
         {
           sender: "bot",
-          text: "Sorry, I'm having trouble connecting. Please try again later.",
+          text: "I'm having trouble connecting to the AI service. Please try again in a moment.",
         },
       ]);
     } finally {
