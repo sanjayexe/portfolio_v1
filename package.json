@@ -2,13 +2,12 @@
   "name": "sanjay-portfolio",
   "private": true,
   "version": "0.0.0",
-"engines": {
-  "node": "18.x"
-},
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postinstall": "vite build --version || true",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
