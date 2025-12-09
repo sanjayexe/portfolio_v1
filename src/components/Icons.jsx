@@ -240,7 +240,7 @@ export const CodeIcon = () => (
 
 export const FigmaIcon = () => (
   <svg
-    className="h-8 w-8 text-purple-400"
+    className="h-8 w-8 text-purple-500"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -248,9 +248,27 @@ export const FigmaIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <path d="M12 12a4 4 0 100-8 4 4 0 000 8z"></path>
-    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"></path>
-    <path d="M12 12a4 4 0 110-8 4 4 0 010 8z"></path>
-    <path d="M12 12a4 4 0 100 8 4 4 0 000-8z"></path>
+    <path d="M12 2a3 3 0 0 1 3 3v3h-6V5a3 3 0 0 1 3-3z"></path>
+    <path d="M15 5a3 3 0 1 1 6 0v6a3 3 0 0 1-3 3h-3V5z"></path>
+    <path d="M9 8a3 3 0 0 1-3 3v6a3 3 0 1 0 6 0v-6a3 3 0 0 1-3-3z"></path>
+    <path d="M6 11a3 3 0 0 1-3 3v3a3 3 0 1 0 6 0v-3a3 3 0 0 1-3-3z"></path>
+  </svg>
+);
+
+export const InstagramIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
   </svg>
 );

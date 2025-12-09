@@ -1,6 +1,6 @@
 import React from "react";
 import { portfolioData } from "../data/portfolioData.jsx";
-import { GithubIcon } from "./Icons.jsx";
+import { GithubIcon, InstagramIcon } from "./Icons.jsx";
 
 const Section = ({ id, title, children, className = "" }) => (
   <section id={id} className={`section-padding fade-in ${className}`}>
@@ -21,22 +21,15 @@ const ContactSection = () => (
   <Section id="contact" title="Contact Me">
     <div className="max-w-2xl mx-auto text-center">
       <p className="theme-text-secondary text-body-large mb-12 leading-relaxed">
-        Have a project in mind or just want to say hi? I'm always open to
-        discussing new projects and opportunities.
+        Have a project in mind or just want to say hi? Connect with me on social media or send me a message.
       </p>
-      <a
-        href={`mailto:${portfolioData.email}`}
-        className="inline-block text-white font-bold py-4 px-12 rounded-full hover:opacity-90 transition-all duration-300 text-body mb-12 theme-shadow transform hover:scale-105"
-        style={{ backgroundColor: "var(--accent-primary)" }}
-      >
-        Say Hello
-      </a>
       <div className="flex justify-center space-x-8">
         <a
           href={portfolioData.profiles.github}
           target="_blank"
           rel="noopener noreferrer"
           className="theme-text-secondary hover:theme-accent transition-colors duration-300 transform hover:scale-125 p-3"
+          aria-label="GitHub"
         >
           <GithubIcon />
         </a>
@@ -45,6 +38,7 @@ const ContactSection = () => (
           target="_blank"
           rel="noopener noreferrer"
           className="theme-text-secondary hover:theme-accent transition-colors duration-300 transform hover:scale-125 p-3"
+          aria-label="LinkedIn"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +55,15 @@ const ContactSection = () => (
             <rect x="2" y="9" width="4" height="12"></rect>
             <circle cx="4" cy="4" r="2"></circle>
           </svg>
+        </a>
+        <a
+          href={portfolioData.profiles.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="theme-text-secondary hover:theme-accent transition-colors duration-300 transform hover:scale-125 p-3"
+          aria-label="Instagram"
+        >
+          <InstagramIcon />
         </a>
       </div>
     </div>

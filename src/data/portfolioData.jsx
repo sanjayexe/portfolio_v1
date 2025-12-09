@@ -21,7 +21,8 @@ export const portfolioData = {
   phone: "+91 9345748085",
   profiles: {
     github: "https://github.com/Sanjayexe",
-    linkedin: "https://linkedin.com/in/Sanjay-dev", // Assuming LinkedIn based on resume handle
+    linkedin: "https://linkedin.com/in/Sanjay-dev",
+    instagram: "https://www.instagram.com/_sxn.jxy__?igsh=MXA2ZGdvajB0MDQyag=="
   },
   summary:
     "MSc in Software Systems graduate with expertise in front-end and back-end development. Friendly, collaborative, and skilled in leadership, delivering innovative and efficient web solutions.",
