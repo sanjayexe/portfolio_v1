@@ -31,7 +31,7 @@ const HeroSection = () => (
           </a>
           
           <a
-            href="#contact"
+            href={`mailto:${portfolioData.email}`}
             className="relative group inline-flex items-center justify-center px-8 py-4 overflow-hidden font-bold rounded-full border-2 transition-all duration-300 transform-gpu hover:scale-105"
             style={{
               borderColor: 'var(--accent-primary)',

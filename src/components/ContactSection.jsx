@@ -23,6 +23,7 @@ const ContactSection = () => (
       <p className="theme-text-secondary text-body-large mb-12 leading-relaxed">
         Have a project in mind or just want to say hi? Connect with me on social media or send me a message.
       </p>
+    
       <div className="flex justify-center space-x-8">
         <a
           href={portfolioData.profiles.github}
